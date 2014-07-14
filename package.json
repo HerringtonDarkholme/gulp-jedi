@@ -1,0 +1,34 @@
+{
+  "name": "gulp-jedi",
+  "version": "0.0.0",
+  "description": "Gulp plugin for jedi lang",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "gulpplugin",
+    "jedi",
+    "template",
+    "compile"
+  ],
+
+  "dependencies": {
+    "gulp-util": "^2.2.20",
+    "jedi": "^0.9.24",
+    "through2": "^0.5.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.6",
+    "mocha": "*"
+  },
+
+  "author": "Herrington Darkholme",
+  "license": "Apache",
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/HerringtonDarkholme/gulp-jedi.git"
+  },
+  "homepage": "https://github.com/HerringtonDarkholme/gulp-jedi",
+  "bugs": "https://github.com/HerringtonDarkholme/gulp-jedi/issues"
+}

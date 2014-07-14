@@ -1,0 +1,125 @@
+!html5
+! void is nuance
+html
+    head
+		meta @charset='utf-8'
+		title "{page.title} - Jedi
+		link @rel='stylesheet' @href={url.static 'common.css'}
+
+	body
+
+		section#comment
+
+			h1 'Comment
+
+			!	Here is HTML comments
+
+			!	Comments can be
+				multiple
+				lines…
+
+			!	“--” in the comments will be escaped automatically
+
+		section#suppress
+
+			h1 'Suppress
+
+			-- This is code suppress, no ouptput at all
+
+			--p
+				'It's easy to use suppress to disable
+				'the whole block of code
+
+		section#text
+
+			h1 'Text
+
+			p
+				'	Normal text, can contains any character include ' and ",
+					the special HTML characters like < > & will be escaped,
+					also support link break.
+
+			p
+				"	Interpolation text, in which expressions can be interplated:
+					1 + 1 = {1 + 1}
+
+			p
+				'Note: all whitespaces include newline character will be
+				'collapsed to a single space. So multiple lines of text
+				'will produce redundunt spaces for East-Asian languages.
+
+				'But it can be controlled by adding quatation mark a'
+				't the end of the line'
+
+		section#element
+
+			h1 'Element
+
+			p
+				'Just write element name, Jedi will deal with rest problems
+				'like when and how to add close tag
+
+			p.note 'element with class
+
+			p.help.note 'multiple classes
+
+			p#element-with-id 'with ID
+
+			p.help.note#element-with-classlist-and-id
+				'You can mix classes and ID, but should write as the order
+				'tagname.class1.class2#id
+				'tagname should not be omitted, (eg. .naked-class),
+				'because it tend to divitius
+
+			p
+				'Only-one child element can be collapsed to the
+				'line of parent element:
+				nav > ul#standard-bodies
+						li > a @href='http://www.w3.org/'
+							'W3C
+						li > a @href='http://www.whatwg.org/'
+							'WHATWG
+						li > a @href='http://www.ecmascript.org/'
+							'ECMA TC39
+
+			p
+				'attributes
+				@title='You can write attributes after some contents if you like'
+
+		section#instruction
+
+			h1 'Instruction
+
+			:if user.age < 18
+				p 'NO ENTER!
+			:else
+				p 'Welcome to the lost paradise.
+
+			ul
+				:for x in [1, 2, 3]
+					li "x = {x}
+
+			p
+				'Some instructions can be write after element name
+				'to keep the nest structure of HTML
+
+			p if user.age < 18
+				'NO ENTER!
+			p else
+				'Welcome to the lost paradise.
+
+			ul
+				li for x in 1 ... 10
+					"x = {x}
+
+		section#inject
+
+			h1 'Inject
+
+			- echo 'Here we inject some codes of host language'
+
+			- $user = 'hax'
+			- if ($user)
+				p
+					'Hello
+					- echo $user
